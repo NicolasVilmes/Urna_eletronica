@@ -4,6 +4,8 @@ let descricao = document.querySelector(".d-1-4");
 let aviso = document.querySelector(".d-2");
 let lateral = document.querySelector(".d-1-right");
 let numeros = document.querySelector(".d-1-3");
+let FIM = new Audio("/assets//sound/FIM.mp3");
+let Tecla = new Audio("/assets/sound/key sound.mp3");
 
 let etapaAtual = 0;
 let numero = "";
@@ -67,6 +69,7 @@ function clicou(n) {
   if (elNumero !== null) {
     elNumero.innerHTML = n;
     numero = `${numero}${n}`;
+    Tecla.play();
 
     elNumero.classList.remove("pisca");
     if (elNumero.nextElementSibling !== null) {
@@ -115,6 +118,7 @@ function confirma() {
     } else {
       document.querySelector(".tela").innerHTML =
         '<div class="aviso--gigante pisca">FIM</div>';
+      FIM.play();
       console.log(votos);
     }
   }
